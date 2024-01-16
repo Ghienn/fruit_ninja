@@ -13,15 +13,22 @@ class FlightPathWidget extends StatefulWidget {
 
   final Function() onOffScreen;
 
-  const FlightPathWidget({Key key, this.flightPath, this.unitSize, this.pixelsPerUnit, this.child, this.onOffScreen})
+  const FlightPathWidget(
+      {Key? key,
+      required this.flightPath,
+      required this.unitSize,
+      required this.pixelsPerUnit,
+      required this.child,
+      required this.onOffScreen})
       : super(key: key);
 
   @override
   State<StatefulWidget> createState() => FlightPathWidgetState();
 }
 
-class FlightPathWidgetState extends State<FlightPathWidget> with SingleTickerProviderStateMixin {
-  AnimationController controller;
+class FlightPathWidgetState extends State<FlightPathWidget>
+    with SingleTickerProviderStateMixin {
+  late AnimationController controller;
 
   @override
   void initState() {
@@ -56,12 +63,14 @@ class FlightPathWidgetState extends State<FlightPathWidget> with SingleTickerPro
   Widget build(BuildContext context) => AnimatedBuilder(
       animation: controller,
       builder: (context, child) {
-        Offset pos = widget.flightPath.getPosition(controller.value) * widget.pixelsPerUnit;
+        Offset pos = widget.flightPath.getPosition(controller.value) *
+            widget.pixelsPerUnit;
         return Positioned(
           left: pos.dx - widget.unitSize.width * .5 * widget.pixelsPerUnit,
           bottom: pos.dy - widget.unitSize.height * .5 * widget.pixelsPerUnit,
           child: Transform(
-            transform: Matrix4.rotationZ(widget.flightPath.getAngle(controller.value)),
+            transform:
+                Matrix4.rotationZ(widget.flightPath.getAngle(controller.value)),
             alignment: Alignment.center,
             child: child,
           ),

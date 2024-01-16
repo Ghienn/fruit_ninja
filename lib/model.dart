@@ -45,7 +45,7 @@ class PieceOfFruit {
   final FlightPath flightPath;
   final FruitType type;
 
-  PieceOfFruit({this.createdMS, this.flightPath, this.type});
+  PieceOfFruit({required this.createdMS, required this.flightPath, required this.type});
 }
 
 class SlicedFruit {
@@ -54,7 +54,7 @@ class SlicedFruit {
   final FlightPath flightPath;
   final FruitType type;
 
-  SlicedFruit({this.slice, this.flightPath, this.type});
+  SlicedFruit({ required this.slice, required this.flightPath, required this.type});
 }
 
 class Slice {
@@ -74,7 +74,7 @@ class FlightPath {
   final Offset position;
   final Offset velocity;
 
-  FlightPath({this.angle, this.angularVelocity, this.position, this.velocity});
+  FlightPath({required this.angle, required this.angularVelocity, required this.position, required this.velocity});
 
   Offset getPosition(double t) {
     return (GRAVITY * .5) * t * t + velocity * t + position;

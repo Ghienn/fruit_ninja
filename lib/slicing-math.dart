@@ -57,11 +57,11 @@ List<List<Offset>> getSlicePaths(Offset s1, Offset s2, Size boxSize, Offset boxP
           cp = Offset(corner.dx, yVal);
         }
       }
-      if (cp != null) {
-        currentPath.add(cp);
-        currentPath = currentPath == path1 ? path2 : path1;
-        currentPath.add(cp);
-      }
+      // if (cp != null) {
+      //   currentPath.add(cp);
+      //   currentPath = currentPath == path1 ? path2 : path1;
+      //   currentPath.add(cp);
+      // }
     }
     horizontal = !horizontal;
   }

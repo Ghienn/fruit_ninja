@@ -5,14 +5,14 @@ class SliceWidget extends StatefulWidget {
   final Offset sliceEnd;
   final Function() sliceFinished;
 
-  const SliceWidget({Key key, this.sliceBegin, this.sliceEnd, this.sliceFinished}) : super(key: key);
+  const SliceWidget({Key? key, required this.sliceBegin, required this.sliceEnd, required this.sliceFinished}) : super(key: key);
 
   @override
   State<StatefulWidget> createState() => SliceWidgetState();
 }
 
 class SliceWidgetState extends State<SliceWidget> with SingleTickerProviderStateMixin {
-  AnimationController controller;
+  late AnimationController controller;
   @override
   void initState() {
     super.initState();
@@ -51,7 +51,7 @@ class SlicePainter extends CustomPainter {
   final Offset begin;
   final Offset end;
 
-  SlicePainter({this.begin, this.end});
+  SlicePainter({ required this.begin, required this.end});
   @override
   void paint(Canvas canvas, Size size) {
     canvas.drawPath(
